@@ -23,8 +23,15 @@ module.exports = class Router
     #     console.log "*** response:", req.method, "request to", req.url, "request responded [#{(duration / 1000.0)} secs]"
     #   next()
 
-    # Overall index
     @app.get "/", (req, res) ->
+      res.render "index"
+
+    @app.post "/", (req, res) ->
+      sendTo = req.body["sendTo"]
+      data = req.body["eventData"]
+      console.log "*** posting event to'", sendTo, "' with the data:", data
+
+      # TODO: make the request
       res.render "index"
 
 # Returns a simple string with a description of the client that made

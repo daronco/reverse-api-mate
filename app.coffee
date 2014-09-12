@@ -46,6 +46,8 @@ app.configure "production", ->
     detectChanges: false
 
 app.helpers
+  __i: i18n.__,
+  __n: i18n.__n
   h_locale: i18n.getLocale
   h_environment: app.settings.env
 

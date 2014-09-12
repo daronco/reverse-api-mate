@@ -5,7 +5,15 @@ html(lang=h_locale())
     // != css('layout')
 
   body
-    = "My Page"
+    form.form(action='/', method='post')
+      .control-group
+        label.control-label(for="send-to")= __i('Send to')
+        .controls
+          input#send-to(type='text', name='sendTo', value='http://localhost:3000/bigbluebutton/api/callback')
+        label.control-label(for="event-data")= __i('Data')
+        .controls
+          input#event-data(type='text', name='eventData', value='type=create&meetingID=12345&attendeePW=123')
+      button.btn.btn-primary(type='submit')= __i('Send')
 
     block javascripts
       - if (h_environment == "development")
