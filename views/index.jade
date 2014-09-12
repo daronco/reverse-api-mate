@@ -1,0 +1,17 @@
+!!!
+html(lang=h_locale())
+  block head
+    meta(charset="utf-8")
+    // != css('layout')
+
+  body
+    = "My Page"
+
+    block javascripts
+      - if (h_environment == "development")
+        script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js')
+        script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js')
+      - else
+        script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+        script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+      // != js('layout')
