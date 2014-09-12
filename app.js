@@ -4,9 +4,10 @@ require("coffee-script");
 
 // Start the server
 app = require('./app.coffee');
-app.listen(3000);
+port = 3001
+app.listen(port);
 if (app.address() === null) {
-  console.log('Could not bind to port', 3000);
+  console.log('Could not bind to port', port);
   console.log('Aborting.');
   process.exit(1);
 }

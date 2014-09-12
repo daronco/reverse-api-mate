@@ -1,3 +1,5 @@
+sendRequest = require("request")
+
 Utils = require("../lib/utils")
 
 # Application's default router, with the most generic routes.
@@ -31,8 +33,20 @@ module.exports = class Router
       data = req.body["eventData"]
       console.log "*** posting event to'", sendTo, "' with the data:", data
 
-      # TODO: make the request
-      res.render "index"
+      opt =
+        url: sendTo
+        timeout: 2000
+        method: "POST"
+        body: data
+      console.log "-- sending the request", opt
+      sendRequest opt, (error, receivedRes, body) =>
+        if error?
+          console.log "-- sending received the error", error
+          res.send(error)
+        else
+          console.log "-- sending received the response", body
+          res.setHeader("Content-Type", "text/xml")
+          res.send(body)
 
 # Returns a simple string with a description of the client that made
 # the request. It includes the IP address and the user agent.

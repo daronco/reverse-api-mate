@@ -2,18 +2,22 @@
 html(lang=h_locale())
   block head
     meta(charset="utf-8")
-    // != css('layout')
+    != css('/vendor/bootstrap/css/bootstrap')
+    != css('application')
 
   body
     form.form(action='/', method='post')
-      .control-group
+      .form-group
         label.control-label(for="send-to")= __i('Send to')
-        .controls
-          input#send-to(type='text', name='sendTo', value='http://localhost:3000/bigbluebutton/api/callback')
+        input#send-to.form-control(type='text', name='sendTo', value='http://localhost:3000/bigbluebutton/api/callback', autofocus='autofocus')
+      .form-group
         label.control-label(for="event-data")= __i('Data')
-        .controls
-          input#event-data(type='text', name='eventData', value='type=create&meetingID=12345&attendeePW=123')
-      button.btn.btn-primary(type='submit')= __i('Send')
+        input#event-data.form-control(type='text', name='eventData', value='eventName=MeetingCreatedEvent&timestamp=1234567890&meetingID=12345&meetingName=Leonardo')
+        // input#event-data(type='text', name='eventData', value='eventName=StartRecordingEvent&timestamp=1234567890&meetingID=12345&recordingTimestamp=1409950559394865')
+        // input#event-data(type='text', name='eventData', value='eventName=ParticipantJoinedEvent&timestamp=1234567890&meetingID=12345&callername=Leonardo')
+        // input#event-data(type='text', name='eventData', value='eventName=EndAndKickAllEvent&timestamp=1234567890&meetingID=12345&')
+      .form-group
+        button.btn.btn-primary(type='submit')= __i('Send')
 
     block javascripts
       - if (h_environment == "development")
