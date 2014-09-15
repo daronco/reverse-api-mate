@@ -38,6 +38,9 @@ module.exports = class Router
         timeout: 2000
         method: "POST"
         body: data
+        headers:
+          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Length': Buffer.byteLength(data)
       console.log "-- sending the request", opt
       sendRequest opt, (error, receivedRes, body) =>
         if error?
