@@ -36,6 +36,7 @@ module.exports = class Router
       data = req.body["eventData"]
       ip = req.body["senderIP"]
       salt = req.body["senderSalt"]
+      timestamp = req.body["timestamp"]
 
       headers =
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -44,6 +45,8 @@ module.exports = class Router
         console.log "-- setting the IP to", ip
         # the LB tries this header before getting the IP from request.connection.remoteAddress
         headers['x-real-ip'] = ip
+
+      data += "&ts=#{timestamp}"
 
       csUrl = sendTo + "?" + data
       console.log "-- calculating checksum for", csUrl

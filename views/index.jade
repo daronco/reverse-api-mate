@@ -23,6 +23,9 @@ html(lang=h_locale())
         label.control-label(for="sender-salt")= __i('Set sender\'s salt to')
         input#sender-salt.form-control(type='text', name='senderSalt', value='')
       .form-group
+        label.control-label(for="timestamp")= __i('timestamp')
+        input#timestamp.form-control(type='text', name='timestamp', value=(new Date().getTime()))
+      .form-group
         button.btn.btn-primary(type='submit')= __i('Send')
 
     block javascripts
