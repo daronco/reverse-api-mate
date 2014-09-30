@@ -12,10 +12,16 @@ html(lang=h_locale())
         input#send-to.form-control(type='text', name='sendTo', value='http://localhost:3000/bigbluebutton/api/callback', autofocus='autofocus')
       .form-group
         label.control-label(for="event-data")= __i('Data')
-        // input#event-data.form-control(type='text', name='eventData', value='eventName=MeetingCreatedEvent&timestamp=1234567890&meetingID=12345&meetingName=Leonardo')
+        input#event-data.form-control(type='text', name='eventData', value='eventName=MeetingCreatedEvent&timestamp=1234567890&meetingID=12345&meetingName=Leonardo')
         // input#event-data.form-control(type='text', name='eventData', value='eventName=StartRecordingEvent&timestamp=1234567890&meetingID=12345&recordingTimestamp=1409950559394865')
         // input#event-data.form-control(type='text', name='eventData', value='eventName=ParticipantJoinedEvent&timestamp=1234567890&meetingID=12345&callername=Leonardo')
-        input#event-data.form-control(type='text', name='eventData', value='eventName=EndAndKickAllEvent&timestamp=1234567890&meetingID=12345&')
+        // input#event-data.form-control(type='text', name='eventData', value='eventName=EndAndKickAllEvent&timestamp=1234567890&meetingID=12345&')
+      .form-group
+        label.control-label(for="sender-ip")= __i('Set sender\'s IP to')
+        input#sender-ip.form-control(type='text', name='senderIP', value='')
+      .form-group
+        label.control-label(for="sender-salt")= __i('Set sender\'s salt to')
+        input#sender-salt.form-control(type='text', name='senderSalt', value='')
       .form-group
         button.btn.btn-primary(type='submit')= __i('Send')
 

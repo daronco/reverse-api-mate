@@ -12,9 +12,11 @@
     "underscore.string": "2.3.1",
     "connect-redis": "1.4.4",
     "i18n": "0.3.5",
-    "less": "1.3.0"
+    "less": "1.3.0",
+    "lodash": "^2.4.1",
+    "sha1": "^1.1.0"
   },
-  "engnies": {
+  "engines": {
     "node": "0.10.26"
   }
 }
